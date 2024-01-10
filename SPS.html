@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SPS Game</title>
+    <link rel="stylesheet" href="SPS.css" />
+    <link rel="icon" type="image/x-icon" href="logojpg.jpg" />
+  </head>
+  <body>
+    <main>
+      <div class="maindiv">
+        <div class="firstwrapper">
+          <img src="rock.png" id="stone" />
+          <img src="paper.png" id="paper" />
+          <img src="scissors.png" id="scissors" />
+        </div>
+
+        <div class="secondwrapper">
+          <div><u>User</u> <span id="user"></span></div>
+          <div>
+            <u>Robot</u>
+            <span id="robot"></span>
+          </div>
+          <div><u>Result</u><span id="result"></span></div>
+        </div>
+      </div>
+    </main>
+  </body>
+
+  <script>
+    const stone$ = document.getElementById("stone");
+    const paper$ = document.getElementById("paper");
+    const scissors$ = document.getElementById("scissors");
+    let user$ = document.getElementById("user");
+    let robot$ = document.getElementById("robot");
+    let result$ = document.getElementById("result");
+    const choices = ["Stone", "Paper", "Scissors"];
+
+    stone$.addEventListener("click", function () {
+      const computer = choices[Math.floor(Math.random() * choices.length)];
+      robot$.innerText = computer;
+      user$.innerText = "Stone";
+      if (user$.innerText === robot$.innerText) {
+        result$.innerText = "Tie";
+        result$.style.backgroundColor = "darkcyan";
+      } else if (user$.innerText && robot$.innerText === "Paper") {
+        result$.innerText = "You Lose";
+        result$.style.backgroundColor = "coral";
+      } else if (user$.innerText && robot$.innerText === "Scissors") {
+        result$.innerText = "You Win";
+        result$.style.backgroundColor = "aquamarine";
+      }
+    });
+
+    paper$.addEventListener("click", function () {
+      const computer = choices[Math.floor(Math.random() * choices.length)];
+      robot$.innerText = computer;
+      user$.innerText = "Paper";
+      if (user$.innerText === robot$.innerText) {
+        result$.innerText = "Tie";
+        result$.style.backgroundColor = "darkcyan";
+      } else if (user$.innerText && robot$.innerText === "Scissors") {
+        result$.innerText = "You Lose";
+        result$.style.backgroundColor = "coral";
+      } else if (user$.innerText && robot$.innerText === "Stone") {
+        result$.innerText = "You Win";
+        result$.style.backgroundColor = "aquamarine";
+      }
+    });
+
+    scissors$.addEventListener("click", function () {
+      const computer = choices[Math.floor(Math.random() * choices.length)];
+      robot$.innerText = computer;
+      user$.innerText = "Scissors";
+      if (user$.innerText === robot$.innerText) {
+        result$.innerText = "Tie";
+        result$.style.backgroundColor = "darkcyan";
+      } else if (user$.innerText && robot$.innerText === "Stone") {
+        result$.innerText = "You Lose";
+        result$.style.backgroundColor = "coral";
+      } else if (user$.innerText && robot$.innerText === "Paper") {
+        result$.innerText = "You Win";
+        result$.style.backgroundColor = "aquamarine";
+      }
+    });
+  </script>
+</html>
